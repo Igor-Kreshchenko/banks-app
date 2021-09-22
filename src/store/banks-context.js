@@ -24,10 +24,13 @@ export const BanksProvider = ({ children }) => {
 
   const updateBankHandler = (bankId, updateData) => {
     setAllBanks((prevAllBanks) => {
-      const bankToUpdate = prevAllBanks.filter((bank) => bank.id !== bankId);
+      const bankToUpdate = prevAllBanks.find((bank) => bank.id === bankId);
+      const indexToUpdate = prevAllBanks.findIndex(
+        (bank) => bank.id === bankId
+      );
       const updatedBank = { ...bankToUpdate, ...updateData };
 
-      return updatedBank;
+      return prevAllBanks.splice(indexToUpdate, 1, updatedBank);
     });
   };
 

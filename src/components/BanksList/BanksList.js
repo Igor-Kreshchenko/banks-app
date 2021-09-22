@@ -1,6 +1,5 @@
 import React from "react";
 import BanksListItem from "./BanksItem";
-
 import classes from "./BanksList.module.css";
 
 const BanksList = ({ banks }) => {

@@ -12,8 +12,7 @@
   margin-bottom: 0.5rem;
 }
 
-.control input,
-.control textarea {
+.control input {
   display: block;
   font: inherit;
   border-radius: 4px;
@@ -42,4 +41,14 @@
 .actions button:active {
   background-color: #a50e48;
   border-color: #a50e48;
+}
+
+.resultBox {
+  padding: 1rem;
+}
+
+.result {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
 }

@@ -3,7 +3,7 @@ import BankEditorForm from "../BankEditorForm";
 import Card from "../Card";
 import classes from "./Modal.module.css";
 
-const Modal = ({ title, btnText, onSubmit, onClose }) => {
+const Modal = ({ bankData, title, btnText, onClose }) => {
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       onClose();
@@ -16,8 +16,8 @@ const Modal = ({ title, btnText, onSubmit, onClose }) => {
         <div className={classes.content}>
           <h2>{title}</h2>
           <BankEditorForm
+            bankData={bankData}
             btnText={btnText}
-            onSubmit={onSubmit}
             onClose={onClose}
           />
         </div>

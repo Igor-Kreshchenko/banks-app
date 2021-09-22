@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Card from "../../Card";
 import Modal from "../../Modal";
-import { deleteBank, updateBank } from "../../../services/api-service";
+import { deleteBank } from "../../../services/api-service";
 import BanksContext from "../../../store/banks-context";
 import classes from "./BanksListItem.module.css";
 
@@ -18,22 +18,16 @@ const BanksListItem = ({ bank }) => {
     deleteBank(id).then(() => banksContext.deleteBank(id));
   };
 
-  const updateHandler = (bankId, updateData) => {
-    updateBank(bankId, updateData).then(() =>
-      banksContext.updateBank(bankId, updateData)
-    );
-  };
-
   return (
     <li className={classes.item}>
       <Card>
         <div className={classes.content}>
           <h3>{name}</h3>
 
-          <p>Interest rate: {interestRate}</p>
-          <p>Maximum loan: {maxLoan}</p>
-          <p>Minimum down payment: {minDownPayment}</p>
-          <p>Loan term: {loanTerm}</p>
+          <p>Interest rate: {interestRate} %</p>
+          <p>Maximum loan: {maxLoan} $</p>
+          <p>Minimum down payment: {minDownPayment} %</p>
+          <p>Loan term: {loanTerm} months</p>
         </div>
 
         <div className={classes.actions}>
@@ -44,7 +38,7 @@ const BanksListItem = ({ bank }) => {
 
       {isUpdateModalOpen && (
         <Modal
-          onSubmit={updateHandler}
+          bankData={bank}
           title="Update data"
           btnText="Update"
           onClose={toggleUpdateModal}
