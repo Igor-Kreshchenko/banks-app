@@ -60,9 +60,9 @@ const BankEditorForm = ({ bankData, btnText, onClose }) => {
     };
 
     if (bankData) {
-      updateBank(bankData.id, bank).then(() =>
-        banksContext.updateBank(bankData.id, bank)
-      );
+      updateBank(bankData.id, bank)
+        .then(() => banksContext.updateBank(bankData.id, bank))
+        .catch((error) => error.message);
     } else {
       addNewBank(bank)
         .then(() => banksContext.addNewBank(bank))

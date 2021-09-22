@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import BanksContext from "../store/banks-context";
+import React, { useState } from "react";
 import IconButton from "../components/IconButton";
 import BanksList from "../components/BanksList";
 import Modal from "../components/Modal";
@@ -7,7 +6,6 @@ import { ReactComponent as AddIcon } from "../icons/add.svg";
 
 const BanksManagementPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const banksContext = useContext(BanksContext);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -20,7 +18,7 @@ const BanksManagementPage = () => {
         <IconButton onClick={toggleModal} aria-label="Add bank">
           <AddIcon width="40" height="40" fill="#fff" />
         </IconButton>
-        <BanksList banks={banksContext.banks} />
+        <BanksList />
       </section>
 
       {isModalOpen && (

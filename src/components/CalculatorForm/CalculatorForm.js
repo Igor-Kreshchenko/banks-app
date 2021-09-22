@@ -7,6 +7,7 @@ const CalculatorForm = () => {
   const [nameValue, setNameValue] = useState("");
   const [initialLoanValue, setInitialLoanValue] = useState("");
   const [downPaymentValue, setDownPaymentValue] = useState("");
+  const [isResult, setIsResult] = useState(false);
   const [isPaymentAvailable, setIsPaymentAvailable] = useState(false);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
 
@@ -29,6 +30,8 @@ const CalculatorForm = () => {
       default:
         console.warn(`Invalid field ${name} type`);
     }
+
+    setIsResult(false);
   };
 
   const calculateHandler = () => {
@@ -53,10 +56,12 @@ const CalculatorForm = () => {
           ((1 + interestRate / 100 / 12) ** loanTerm - 1);
 
         setMonthlyPayment(Math.round(monthlyPayment));
+        setIsResult(true);
         setIsPaymentAvailable(true);
         return;
       }
 
+      setIsResult(true);
       setIsPaymentAvailable(false);
     }
   };
@@ -105,13 +110,17 @@ const CalculatorForm = () => {
         </div>
       </form>
 
-      <div className={classes.resultBox}>
-        {isPaymentAvailable ? (
-          <p className={classes.result}>Monthly Payment: {monthlyPayment} $</p>
-        ) : (
-          <p className={classes.result}>Unsuitable credit conditions</p>
-        )}
-      </div>
+      {isResult && (
+        <div className={classes.resultBox}>
+          {isPaymentAvailable ? (
+            <p className={classes.result}>
+              Monthly Payment: {monthlyPayment} $
+            </p>
+          ) : (
+            <p className={classes.result}>Unsuitable credit conditions</p>
+          )}
+        </div>
+      )}
     </>
   );
 };
