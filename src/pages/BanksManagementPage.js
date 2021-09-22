@@ -63,6 +63,7 @@ const BanksManagementPage = () => {
         <Modal
           onSubmit={createNewBank}
           title="Add new bank"
+          btnText="Add"
           onClose={toggleModal}
         />
       )}

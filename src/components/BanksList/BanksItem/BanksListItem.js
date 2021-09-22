@@ -46,6 +46,7 @@ const BanksListItem = ({ bank }) => {
         <Modal
           onSubmit={updateHandler}
           title="Update data"
+          btnText="Update"
           onClose={toggleUpdateModal}
         />
       )}

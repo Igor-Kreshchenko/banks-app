@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import classes from "./BankEditorForm.module.css";
 
-const BankEditorForm = ({ onSubmit, onClose }) => {
+const BankEditorForm = ({ btnText, onSubmit, onClose }) => {
   const nameInputRef = useRef();
   const interestRateInputRef = useRef();
   const maxLoanInputRef = useRef();
@@ -36,7 +36,7 @@ const BankEditorForm = ({ onSubmit, onClose }) => {
         <input type="text" required id="name" ref={nameInputRef} />
       </div>
       <div className={classes.control}>
-        <label htmlFor="interestRate"> Interest rate</label>
+        <label htmlFor="interestRate">Interest rate</label>
         <input
           type="text"
           required
@@ -68,7 +68,7 @@ const BankEditorForm = ({ onSubmit, onClose }) => {
       </div>
 
       <div className={classes.actions}>
-        <button type="submit">Add</button>
+        <button type="submit">{btnText}</button>
       </div>
     </form>
   );

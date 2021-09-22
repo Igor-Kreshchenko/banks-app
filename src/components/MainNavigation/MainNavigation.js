@@ -1,19 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>BM</div>
+      <div className={classes.logo}>Best logo</div>
 
       <nav>
         <ul>
           <li>
-            <Link to="/">All Banks</Link>
+            <NavLink
+              exact
+              className={classes.link}
+              activeClassName={classes.active}
+              to="/"
+            >
+              Banks
+            </NavLink>
           </li>
           <li>
-            <Link to="/calculator">Calculator</Link>
+            <NavLink
+              className={classes.link}
+              activeClassName={classes.active}
+              to="/calculator"
+            >
+              Calculator
+            </NavLink>
           </li>
         </ul>
       </nav>

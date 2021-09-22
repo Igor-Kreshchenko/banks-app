@@ -1,13 +1,22 @@
 .iconButton {
-  padding: 10px;
+  position: absolute;
+  top: 7rem;
+  right: 4rem;
+  padding: 20px;
   border: none;
   border-radius: 50%;
   color: white;
   font: inherit;
   background-color: green;
   cursor: pointer;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.iconButton:hover,
+.iconButton:hover {
+  transform: scale(1.05);
 }
