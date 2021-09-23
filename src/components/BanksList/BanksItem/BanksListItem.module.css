@@ -11,13 +11,22 @@
 }
 
 .content {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   padding: 1rem;
 }
 
 .content h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #2c292b;
+}
+
+.content p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
 }
 
 .actions {

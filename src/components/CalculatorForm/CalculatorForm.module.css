@@ -21,6 +21,15 @@
   width: 100%;
 }
 
+.control select {
+  display: block;
+  font: inherit;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+  width: 100%;
+}
+
 .actions {
   margin-top: 1rem;
   text-align: right;
@@ -47,8 +56,16 @@
   padding: 1rem;
 }
 
-.result {
+.resultSuccess {
   margin: 0;
   text-align: center;
   font-weight: 700;
+  color: green;
+}
+
+.resultError {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  color: red;
 }

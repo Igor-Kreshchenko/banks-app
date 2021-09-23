@@ -37,9 +37,18 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div>
-      <MainNavigation />
-      <main className={classes.main}>{children}</main>
+    <div className={classes.layout}>
+      <div className={classes.content}>
+        <MainNavigation />
+        <main className={classes.main}>{children}</main>
+      </div>
+
+      <footer className={classes.footer}>
+        <p>
+          Developed by{" "}
+          <a href="https://github.com/Igor-Kreshchenko">Igor Kreshchenko</a>
+        </p>
+      </footer>
     </div>
   );
 };

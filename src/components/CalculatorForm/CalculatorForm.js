@@ -10,6 +10,7 @@ const CalculatorForm = () => {
   const [isResult, setIsResult] = useState(false);
   const [isPaymentAvailable, setIsPaymentAvailable] = useState(false);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const banks = banksContext.banks;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,8 +36,6 @@ const CalculatorForm = () => {
   };
 
   const calculateHandler = () => {
-    const banks = banksContext.banks;
-
     const selectedBank = banks.find(
       (bank) => bank.name.toLowerCase() === nameValue.toLowerCase()
     );
@@ -71,14 +70,20 @@ const CalculatorForm = () => {
       <form className={classes.form}>
         <div className={classes.control}>
           <label htmlFor="bankName">Bank name</label>
-          <input
-            type="text"
-            required
-            id="bankName"
+          <select
             name="name"
+            id="bankName"
             value={nameValue}
             onChange={handleChange}
-          />
+            required
+          >
+            <option value="" disabled></option>
+            {banks.map(({ name }) => (
+              <option value={name} key={name}>
+                {name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className={classes.control}>
           <label htmlFor="initialLoan">Initial loan $</label>
@@ -113,11 +118,11 @@ const CalculatorForm = () => {
       {isResult && (
         <div className={classes.resultBox}>
           {isPaymentAvailable ? (
-            <p className={classes.result}>
+            <p className={classes.resultSuccess}>
               Monthly Payment: {monthlyPayment} $
             </p>
           ) : (
-            <p className={classes.result}>Unsuitable credit conditions</p>
+            <p className={classes.resultError}>Unsuitable credit conditions</p>
           )}
         </div>
       )}

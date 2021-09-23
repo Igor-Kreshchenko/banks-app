@@ -24,10 +24,18 @@ const BanksListItem = ({ bank }) => {
         <div className={classes.content}>
           <h3>{name}</h3>
 
-          <p>Interest rate: {interestRate} %</p>
-          <p>Maximum loan: {maxLoan} $</p>
-          <p>Minimum down payment: {minDownPayment} %</p>
-          <p>Loan term: {loanTerm} months</p>
+          <p>
+            <span>Interest rate:</span> {interestRate} %
+          </p>
+          <p>
+            <span>Maximum loan:</span> {maxLoan} $
+          </p>
+          <p>
+            <span>Minimum down payment:</span> {minDownPayment} %
+          </p>
+          <p>
+            <span>Loan term:</span> {loanTerm} months
+          </p>
         </div>
 
         <div className={classes.actions}>
