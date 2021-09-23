@@ -1,6 +1,6 @@
 # Mortgage calculator app
 
-A simple application that will help the user to calculate monthly loan payments in accordance with the selected bank
+A simple application to help the user to calculate monthly loan payments in accordance with the selected bank
 
 ---
 
