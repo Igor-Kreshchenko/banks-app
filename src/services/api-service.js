@@ -1,14 +1,13 @@
 import axios from "axios";
 
-axios.defaults.baseURL =
-  "https://banks-app-1d6d4-default-rtdb.europe-west1.firebasedatabase.app/";
+axios.defaults.baseURL = "https://banks-app-project.herokuapp.com";
 
 export const getAllBanks = () =>
-  axios.get("/banks.json").then(({ data }) => data);
+  axios.get("/api/banks").then(({ data }) => data);
 
-export const addNewBank = (bank) => axios.post("/banks.json", bank);
+export const addNewBank = (bank) => axios.post("/api/banks", bank);
 
-export const deleteBank = (bankId) => axios.delete(`/banks/${bankId}.json`);
+export const deleteBank = (bankId) => axios.delete(`/api/banks/${bankId}`);
 
 export const updateBank = (bankId, updatedBank) =>
-  axios.patch(`/banks/${bankId}.json`, updatedBank);
+  axios.patch(`/api/banks/${bankId}`, updatedBank);

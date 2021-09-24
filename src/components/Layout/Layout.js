@@ -11,17 +11,8 @@ const Layout = ({ children }) => {
   useEffect(() => {
     setIsLoading(true);
 
-    getAllBanks().then((data) => {
-      const banks = [];
-
-      for (const key in data) {
-        const bank = {
-          id: key,
-          ...data[key],
-        };
-
-        banks.push(bank);
-      }
+    getAllBanks().then(({ result }) => {
+      const banks = result;
 
       banksContext.banks = [...banks];
       setIsLoading(false);
