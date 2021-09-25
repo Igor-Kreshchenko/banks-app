@@ -12,9 +12,7 @@ const Layout = ({ children }) => {
     setIsLoading(true);
 
     getAllBanks().then(({ result }) => {
-      const banks = result;
-
-      banksContext.banks = [...banks];
+      banksContext.banks = [...result];
       setIsLoading(false);
     });
   }, [banksContext]);

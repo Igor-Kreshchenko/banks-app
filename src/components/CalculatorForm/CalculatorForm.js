@@ -45,8 +45,8 @@ const CalculatorForm = () => {
       const downPaymentPercentage = (downPaymentValue / initialLoanValue) * 100;
 
       if (
-        +downPaymentPercentage >= +minDownPayment &&
-        +initialLoanValue <= +maxLoan
+        downPaymentPercentage >= minDownPayment &&
+        initialLoanValue <= maxLoan
       ) {
         const monthlyPayment =
           (initialLoanValue *
